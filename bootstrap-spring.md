@@ -1,6 +1,6 @@
 # bootstrap-spring
 
-This serves as a guide to bootstrap a spring application with cucumber.
+This serves as a guide to bootstrap a spring application.
 
 ## Pre-requisites
 
@@ -71,6 +71,16 @@ Under build/plugins section :
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
+                <configuration>
+                    <properties>
+                        <configurationParameters>
+                             junit.jupiter.conditions.deactivate = *
+                             junit.jupiter.extensions.autodetection.enabled = true
+                             junit.jupiter.testinstance.lifecycle.default = per_class
+                             junit.jupiter.execution.parallel.enabled = true
+                        </configurationParameters>
+                    </properties>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -94,7 +104,7 @@ Under build/plugins section :
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <source>1.8</source>
