@@ -10,8 +10,8 @@ Install nodeJs version 8+ https://nodejs.org/en/download/
 Open windows/mac command line and tap:  
 
 ```sh
-node --version  
-npm --version   
+$ node --version  
+$ npm --version   
 ```
 
 # Create project
@@ -68,7 +68,7 @@ echo '
 # Install tests dependances
 
 ```sh
-npm install --save-dev jest  
+$ npm install --save-dev jest  
 ```
 
 # Create tests folder
@@ -123,12 +123,12 @@ package-lock.json" > .gitignore
 
 # Start server 
 ```sh
-npm run start  
+$ npm run start  
 ```
 
 # Run tests
 ```sh
-npm run test  
+$ npm run test  
 ```
 
 
