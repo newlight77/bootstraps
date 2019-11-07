@@ -6,7 +6,7 @@ The project is npm archetype to generate a nodejs project with Jest
 
 Install nodeJs version 8+ https://nodejs.org/en/download/
 
-# Check Version installed
+# Check version installed
 Open windows/mac command line and tap:  
 node --version  
 npm --version   
@@ -66,6 +66,23 @@ server.listen(port, hostname, () => {
 
 Run command line  **npm install --save-dev jest**
 
+# Create tests folder
+
+Create tests folder named tests at the root of the project
+
+Change directory to go to the project using command line **cd tests**
+
+Create file index.js and add these line into the file
+
+<code><pre>
+describe('Sample Test', () => {
+    it('should test that true === true', () => {
+      expect(true).toBe(true)
+    })
+  })
+</code></pre>
+
+
 # Configure tests dependances
 
 Create a file named **jest.config.js** at the root of the project and update the file with these line :  
@@ -82,7 +99,7 @@ module.exports = {
 
 Create a file named .gitignore at the root of the project  
 
-.gitignore file include file or folder must not be published in git repository
+.gitignore file include file or folder which must not be published in git repository
 
 
 Add these line in .gitignore:  
