@@ -8,39 +8,41 @@ Install nodeJs version 8+ https://nodejs.org/en/download/
 
 # Check Version installed
 Open windows/mac command line and tap:  
+
+```sh
 node --version  
 npm --version   
+```
 
 # Create project
 
-1. Create folder (example named **bootstrap-nodejs**)
+```sh
+$ mkdir bootstrap-nodejs-express
 
-2. Change directory using command line : **cd bootstrap-nodejs**  with windows/mac or visual studio code
+$ cd bootstrap-nodejs-express
 
-3. Run command ligne **npm init** and follow these step below
+$ npm init 
 
-<code><pre>
-name: (bootstrap-nodejs)
+name: (bootstrap-nodejs-express)
 version: (0.0.0)
-description: (Simple bootstrap nodejs)
+description: (Simple bootstrap nodejs express)
 entry point: app.js
 test command: jest
 git repository: (your-git-repository-url)
 keywords:
 author: (Your name)
 license: (ISC)
-</code></pre>
-
+```
 
 # Install express dependances
-
-Run command line  **npm install express**
+```sh
+npm install express  
+```
 
 # Create NodeJS server using express
 
-Copy this line in server.js file  
-
-<pre><code>
+```sh
+echo "
 const express = require('express')
 const app = express()
 
@@ -50,75 +52,85 @@ app.get('/', function (req, res) {
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
-})
-</code></pre>
+})" > app.js
+```
 
 
 # Add script start in package.json script for start the server
-<pre><code>
+
+```sh
+echo '
 "scripts": {
     "start": "node app.js",
     "test": "jest"
-  },
-</code></pre>
+  },' > package.json
+```
 
 
 # Install tests dependances
 
-Run command line  **npm install --save-dev jest**
-
+```sh
+npm install --save-dev jest  
+```
 
 # Create tests folder
 
-Create tests folder named tests at the root of the project
+```sh
+$ cd bootstrap-nodejs-express
 
-Change directory to go to the project using command line **cd tests**
+$ mkdir tests
 
-Create file index.js and add these line into the file
+$ cd tests
 
-<code><pre>
+$ touch index.js
+
+echo "
 describe('Sample Test', () => {
     it('should test that true === true', () => {
       expect(true).toBe(true)
     })
-  })
-</code></pre>
-
+  })" > index.js
+```
 
 # Configure tests dependances
 
-Create a file named **jest.config.js** at the root of the project and update the file with these line :  
+```sh
+$ cd bootstrap-nodejs-express
 
-<code><pre>
-// jest.config.js
+$ touch jest.config.js
+
+echo "
+//jest.config.js
 module.exports = {
     verbose: true,
     testMatch: ['**/tests/*.js?(x)'],
-};
-</code></pre>
+};" > jest.config.js
+```
 
 # Create file .gitignore
-Create a file named .gitignore at the root of the project  
-
 .gitignore file include file or folder wich must not be published in git repository
 
+```sh
+$ cd bootstrap-nodejs-express
 
-Add these line in .gitignore:  
+$ touch .gitignore
 
-<code><pre>
+echo "
 node_modules
 build
 npm-debug.log
-package-lock.json
-</code></pre>
-
+package-lock.json" > .gitignore
+```
 
 # Start express app 
-Start server with command line  **npm run start**
+```sh
+npm run start  
+```
 
 # Run tests
-Run tests with command line  **npm run test**
-
+```sh
+npm run test  
+```
 
 
 

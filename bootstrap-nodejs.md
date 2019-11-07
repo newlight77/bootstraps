@@ -6,20 +6,23 @@ The project is npm archetype to generate a nodejs project with Jest
 
 Install nodeJs version 8+ https://nodejs.org/en/download/
 
-# Check version installed
+# Check Version installed
 Open windows/mac command line and tap:  
+
+```sh
 node --version  
 npm --version   
+```
 
 # Create project
 
-1. Create folder (example named **bootstrap-nodejs**)
+```sh
+$ mkdir bootstrap-nodejs
 
-2. Change directory using command line : **cd bootstrap-nodejs**  with windows/mac or visual studio code
+$ cd bootstrap-nodejs
 
-3. Run command ligne **npm init** and follow these step below
+$ npm init 
 
-<code><pre>
 name: (bootstrap-nodejs)
 version: (0.0.0)
 description: (Simple bootstrap nodejs)
@@ -29,13 +32,13 @@ git repository: (your-git-repository-url)
 keywords:
 author: (Your name)
 license: (ISC)
-</code></pre>
+```
+
 
 # Create NodeJS server
 
-Copy this line in server.js file  
-
-<pre><code>
+```sh
+echo "
 const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -48,76 +51,85 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
-});
-
-</code></pre>
-
+});" > server.js
+```
 
 # Add script start in package.json script for start the server
-<pre><code>
+
+```sh
+echo '
 "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "test": "jest"
-  },
-</code></pre>
+  },' > package.json
+```
 
 
 # Install tests dependances
 
-Run command line  **npm install --save-dev jest**
+```sh
+npm install --save-dev jest  
+```
 
 # Create tests folder
 
-Create tests folder named tests at the root of the project
+```sh
+$ cd bootstrap-nodejs
 
-Change directory to go to the project using command line **cd tests**
+$ mkdir tests
 
-Create file index.js and add these line into the file
+$ cd tests
 
-<code><pre>
+$ touch index.js
+
+echo "
 describe('Sample Test', () => {
     it('should test that true === true', () => {
       expect(true).toBe(true)
     })
-  })
-</code></pre>
-
+  })" > index.js
+```
 
 # Configure tests dependances
 
-Create a file named **jest.config.js** at the root of the project and update the file with these line :  
 
-<code><pre>
-// jest.config.js
+```sh
+$ cd bootstrap-nodejs
+
+$ touch jest.config.js
+
+echo "
+//jest.config.js
 module.exports = {
     verbose: true,
     testMatch: ['**/tests/*.js?(x)'],
-};
-</code></pre>
+};" > jest.config.js
+```
 
 # Create file .gitignore
+.gitignore file include file or folder wich must not be published in git repository
 
-Create a file named .gitignore at the root of the project  
+```sh
+$ cd bootstrap-nodejs
 
-.gitignore file include file or folder which must not be published in git repository
+$ touch .gitignore
 
-
-Add these line in .gitignore:  
-
-<code><pre>
+echo "
 node_modules
 build
 npm-debug.log
-package-lock.json
-</code></pre>
-
+package-lock.json" > .gitignore
+```
 
 # Start server 
-Start server with command line  **npm run start**
+```sh
+npm run start  
+```
 
 # Run tests
-Run tests with command line  **npm run test**
-
+```sh
+npm run test  
+```
 
 
 
