@@ -98,7 +98,6 @@ module.exports = {
 </code></pre>
 
 # Create file .gitignore
-
 Create a file named .gitignore at the root of the project  
 
 .gitignore file include file or folder wich must not be published in git repository
