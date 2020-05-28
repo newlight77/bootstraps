@@ -1,0 +1,22 @@
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'http://localhost:9000'
+        property "sonar.projectName", "Bootstrap-Cucumber-Spring"
+        property "sonar.projectKey", "Bootstrap-Cucumber--Spring"
+        property 'sonar.java.source', '8'
+        property 'sonar.sourceEncoding', 'UTF-8'
+        property "sonar.language", "java"
+        property "sonar.login", "admin"
+        property "sonar.password", "admin"
+
+        property 'sonar.java.binaries', 'build/classes/java/main'
+        property 'sonar.java.test.binaries', 'build/classes/java/test'
+        property 'sonar.junit.reportsPath', 'build/test-results/test/binary'
+        property 'sonar.jacoco.reportPath', fileTree(dir: project.projectDir, includes: ['**/*.exec'])
+        property 'sonar.jacoco.itReportPath', fileTree(dir: project.projectDir, includes: ['**/*-it.exec'])
+        property 'sonar.java.coveragePlugin', 'jacoco'
+        property 'sonar.exclusions', '**/model/*.java,**/exception/*.java'
+    }
+}

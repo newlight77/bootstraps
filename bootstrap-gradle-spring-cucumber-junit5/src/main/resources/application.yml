@@ -1,0 +1,6 @@
+server:
+    servlet:
+        context-path: /api
+
+logging:
+    file: bootstrap.log

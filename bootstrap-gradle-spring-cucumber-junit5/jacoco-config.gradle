@@ -1,0 +1,62 @@
+apply plugin: 'jacoco'
+
+test {
+    jacoco {
+        enabled = true
+        destinationFile = file("${buildDir}/jacoco/${project.name}.exec")
+        classDumpDir = file("${buildDir}/jacoco/classpathdumps")
+        classDumpDir = null
+        includes = ['com.newlight77.bootstrap.*']
+        excludes = ['com.newlight77.bootstrap.model.*', 'com.newlight77.bootstrap.exception.*']
+        address = "localhost"
+        port = 9000
+    }
+}
+
+jacocoTestReport {
+
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+//    executionData = files("${buildDir}/jacoco/${project.name}.exec")
+//    executionData = fileTree(dir: project.projectDir, includes: ["**/*.exec", "**/*-it.exec"])
+    executionData.each { File file ->
+        println file.name
+    }
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacoco/Html")
+    }
+
+//    classDirectories = fileTree(
+//       dir: "${project.buildDir}/classes/java/main",
+//        excludes: ['**/model/*.class', '**/exception/*.class']
+//    )
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['com.newlight77.bootstrap.model.*', 'com.newlight77.bootstrap.exception.*'])
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['com.newlight77.*']
+            excludes = ['com.newlight77.bootstrap.model.*',
+                        'com.newlight77.bootstrap.exception.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+//                value = 'COVEREDRATIO'
+//                minimum = 0.8
+                maximum = 0.3
+            }
+        }
+    }
+}
