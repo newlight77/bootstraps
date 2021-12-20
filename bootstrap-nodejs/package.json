@@ -1,0 +1,13 @@
+{
+    "name": "bootstrap-nodejs",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "node",
+        "test": "jest --coverage",
+        "test:dev": "yarn test --watchAll"
+    },
+    "devDependencies": {
+        "jest": "^25.4.0"
+    }
+}

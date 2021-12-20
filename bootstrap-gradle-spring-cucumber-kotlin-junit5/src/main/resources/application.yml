@@ -1,0 +1,19 @@
+server:
+    servlet:
+        context-path: /api
+
+spring:
+    datasource:
+        url: jdbc:postgresql://db/bootstrap
+        username: postres
+        password: postgresql
+        platform: postgresql
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        show-sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
+
+logging:
+    file: bootstrap.log
